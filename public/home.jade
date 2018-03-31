@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title
+      |Pod Casting!
+    link(href="http://vjs.zencdn.net/6.6.3/video-js.css", rel="stylesheet")
+    link(href="/public/style.css", rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Lato", rel="stylesheet")
+    //link(href="/public/vjs-sublime.css", rel="stylesheet")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+  body
+    #center-stage
+      #top-home
+        p#title
+          |Now This Is Pod Casting!
+      form#theform
+        input#field(placeholder="Podcast Video Link", type="text")
+        input#button(type="submit", value="Go to Podcast")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js")
+    script(src="public/submit.js")

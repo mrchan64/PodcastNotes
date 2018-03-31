@@ -19,3 +19,8 @@ ws.onmessage = function(event){
     notes.append(bullet);
   }
 }
+
+$('#inplayer_html5_api').on('timeupdate', ()=>{
+  time = this.currentTime;
+  console.log(time)
+})

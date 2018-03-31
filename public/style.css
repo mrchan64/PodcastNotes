@@ -20,7 +20,8 @@ body{
 }
 
 #top{
-  width: 100%
+  width: 100%;
+  cursor: pointer;
 }
 
 #title{
@@ -118,4 +119,49 @@ p#notetitle{
 }
 .note-3{
   margin-left: 140px;
+}
+
+#center-stage{
+  width: 40%;
+  margin-left: 30%;
+}
+
+#top-home{
+  width: 100%;
+  text-align: center;
+}
+
+#top-home>p{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#theform>input{
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+  background-color: #2A363B;
+  box-shadow: 10px 10px 25px -3px rgba(0,0,0,0.75);
+  border: 1px solid #FF847C;
+  color: inherit;
+}
+
+#field {
+  background-color: #3B474C !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.75);
+}
+::placeholder {
+  color: #FFDFB9;
+  opacity: .5;
+}
+
+#button {
+  margin-top: 40px;
+  cursor: pointer;
+}
+#button:hover {
+  background-color: #19252A;
 }
