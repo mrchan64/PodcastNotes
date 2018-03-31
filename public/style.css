@@ -7,11 +7,33 @@ html{
 body{
   position: relative;
   width: 100%;
-  background-color: #222222;
-  color: #ffcc00;
+  background-color: #2A363B;
+  color: #FECEA8;
   margin: 0;
   padding: 0;
+  font-family: 'Lato', sans-serif;
 }
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+#top{
+  width: 100%
+}
+
+#title{
+  width: auto;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 15px 40px;
+  font-size: 40px;
+  border: 1px solid #FF847C;
+  box-shadow: 10px 10px 25px -3px rgba(0,0,0,0.75);
+  font-weight: bold;
+}
+
 
 #left{
   position: relative;
@@ -21,8 +43,21 @@ body{
 }
 
 #player{
+  position: relative;
+  height: auto;
   width: 100%;
-  margin-top: 60px;
+  border: 1px solid #FF847C;
+  box-shadow: 10px 10px 25px -3px rgba(0,0,0,0.75);
+}
+
+#inplayer{
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+#inplayer_html5_api{
+  position: relative;
 }
 
 #belowbar{
@@ -30,10 +65,11 @@ body{
   float: left;
   margin-top: 30px;
   width: 100%;
-  border: 1px solid #cccccc;
+  border: 1px solid #FF847C;
   border-radius: 1000px;
   font-size: 17px;
   overflow: hidden;
+  box-shadow: 10px 10px 25px -3px rgba(0,0,0,0.75);
 }
 
 p{
@@ -48,8 +84,38 @@ p{
 
 #notes{
   float: left;
-  margin-top: 60px;
   height: 700px;
   width: 100%;
-  border: 1px solid #cccccc;
+  border: 1px solid #FF847C;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  box-shadow: 10px 10px 25px -3px rgba(0,0,0,0.75);
+}
+
+#notes>p{
+  display: inline-block;
+  font-size: 12;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+p#notetitle{
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.note-0{
+  margin-left: 20px;
+}
+.note-1{
+  margin-left: 60px;
+}
+.note-2{
+  margin-left: 100px;
+}
+.note-3{
+  margin-left: 140px;
 }

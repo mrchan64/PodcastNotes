@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title
+      |Pod Casting!
+    link(href="http://vjs.zencdn.net/6.6.3/video-js.css", rel="stylesheet")
+    link(href="/public/style.css", rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Lato", rel="stylesheet")
+    //link(href="/public/vjs-sublime.css", rel="stylesheet")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+  body
+    #top
+      p#title
+        |Now This Is Pod Casting!
+    #left
+      #player
+        video#inplayer.video-js.vjs-sublime-skin(controls preload="auto" data-setup="{}")
+          source(src="#{url}" type="video/mp4")
+      #belowbar
+        p#subtitle
+          |Subtitles Here
+    #right
+      #notes
+        p#notetitle
+          |Notes
+    script(src="http://vjs.zencdn.net/6.6.3/video.js")
+    script(src="/public/socket.js")
