@@ -17,6 +17,7 @@ var subtitleData = {
 
 ws.onmessage = function(event){
   var data = JSON.parse(event.data);
+  console.log(data)
   if(data.tag == 'subtitles'){
     subtitleData.text = data.text;
     subtitleData.timestamps = data.time;

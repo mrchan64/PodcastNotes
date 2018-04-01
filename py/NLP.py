@@ -37,7 +37,7 @@ stop_words = set(stopwords.words('english'))
 with io.open(file_name, 'rb') as file:
 	results = file.read()
 
-results = str(results).split(".")
+results = str(results).split("|")
 
 df_results = pd.DataFrame(data=results)
 df_results.columns = ['results']
@@ -159,7 +159,7 @@ for word in words:
     else:
         freqTable[word] = 1
 
-sentences = res.split(".")
+sentences = res.split("|")
 sentenceValue = np.zeros(len(sentences))
 #print(len(sentenceValue))
 
@@ -237,6 +237,6 @@ for i in summary_ind:
 
 #print(return_dict)
 json_file = json.dumps(return_dict)
-print(json_file)
+sys.stdout.write(json_file)
 sys.stdout.flush()
 

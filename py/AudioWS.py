@@ -124,5 +124,5 @@ for i in range(length):
 
     for result in response.results:
         print('{}'.format(result.alternatives[0].transcript))
-        results.write('{}'.format(result.alternatives[0].transcript)+". ")
+        results.write('{}'.format(result.alternatives[0].transcript)+"| ")
 
