@@ -142,8 +142,8 @@ print(ldamodel.print_topics(num_topics=6, num_words=6))'''
 with io.open('results.txt', 'rb') as file:
 	res = file.read()
 
-#print(res)
 res = str(res)
+print(res)
 stopWords = set(stopwords.words("english"))
 words = word_tokenize(res)
 
