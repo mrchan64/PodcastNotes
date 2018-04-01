@@ -67,14 +67,17 @@ body{
   margin-top: 30px;
   width: 100%;
   border: 1px solid #FF847C;
-  border-radius: 1000px;
+  border-radius: 10px;
   font-size: 17px;
-  overflow: hidden;
+  overflow: scroll;
   box-shadow: 10px 10px 25px -3px rgba(0,0,0,0.75);
+  height: 100px;
 }
 
-p{
+#belowbar>p{
   margin-left: 30px;
+  width: 90%;
+  display: inline-block;
 }
 
 #right{
@@ -85,7 +88,7 @@ p{
 
 #notes{
   float: left;
-  height: 700px;
+  height: 540px;
   width: 100%;
   border: 1px solid #FF847C;
   overflow-x: hidden;
@@ -110,15 +113,19 @@ p#notetitle{
 
 .note-0{
   margin-left: 20px;
+  list-style: circle;
 }
 .note-1{
   margin-left: 60px;
+  list-style: disc;
 }
 .note-2{
   margin-left: 100px;
+  list-style: square;
 }
 .note-3{
   margin-left: 140px;
+  list-style: circle;
 }
 
 #center-stage{
@@ -164,4 +171,12 @@ p#notetitle{
 }
 #button:hover {
   background-color: #19252A;
+}
+
+.highlight{
+  background-color: #FFFF00;
+}
+
+.unhighlight{
+  background-color: none;
 }
