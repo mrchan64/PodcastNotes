@@ -72,12 +72,15 @@ body{
   overflow: scroll;
   box-shadow: 10px 10px 25px -3px rgba(0,0,0,0.75);
   height: 100px;
+  pointer-events: none;
 }
 
 #belowbar>p{
   margin-left: 30px;
   width: 90%;
   display: inline-block;
+  margin-right: 30px;
+  margin-bottom: 100px;
 }
 
 #right{
@@ -174,16 +177,36 @@ p#notetitle{
   background-color: #19252A;
 }
 
-.highlight{
-  background-color: #FFFF00;
+#demo-bar{
+  width: 100%;
 }
 
-.unhighlight{
-  background-color: none;
+#demo-bar>button{
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+  box-shadow: 10px 10px 25px -3px rgba(0,0,0,0.75);
+  border: 1px solid #FF847C;
+  color: #FECEA8;
+  background-color: #2A363B;
+  margin-top: 40px;
+  width: 33%;
+  cursor: pointer;
+}
+#demo-bar>button:hover{
+  background-color: #19252A;
+}
+
+.highlight{
+  background-color: rgba(255,200,50,.3);
 }
 
 .notelist {
   margin-right: 40px;
+}
+
+.changed {
+  background-color: rgba(255,255,255,.3);
 }
 
 li {

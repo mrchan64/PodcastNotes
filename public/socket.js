@@ -1,4 +1,4 @@
-var ws = new WebSocket('ws://localhost:9000/websocket');
+var ws = new WebSocket('ws://'+window.location.host+'/websocket');
 
 var notesArr = [];
 //var notes = $('#notes');
@@ -42,27 +42,18 @@ setTimeout(function(){
 
 function timeOnVideo(video){
   var time = video.currentTime;
-  console.log(time);
-  if(dictionary[time] != undefined){
-    newIndex = dictionary[time];
-    if(currIndex != newIndex){
-      $(notesArr[newIndex]).addClass("highlight");
-      $(notesArr[currIndex]).removeClass("highlight");
-    }
-    currIndex = newIndex;
-  }
 
   for( var i = 0; i<subtitleData.text.length; i++){
     if(time<subtitleData.timestamps[i]){
-      //subtitleTags[i];
-      console.log(i);
-      $('#belowbar').animate({scrollTop: subtitleTags[i].prop("offsetTop")}, 500);
+      i = i-1;
+      console.log(i)
+      $('#belowbar').animate({scrollTop: subtitleTags[i].prop("offsetTop")-10}, 100);
       var order = chrononotes[i];
       if(order){
-        var target = dictionary[order].elem;
-        if(!elem.hasClass('hightlight')){
-          $('.note').removeClass('highlight');
-          elem.addClass('highlight');
+        var target = $('#wave'+dictionary[order].wavnum);
+        if(!target.hasClass('hightlight')){
+          $('li').removeClass('highlight');
+          target.addClass('highlight');
         }
       }
 
@@ -100,7 +91,7 @@ function printNotes(){
       level-=1;
       s+="</ul>";
     }
-    s+="<li>"+dictionary[key].text+"</li>";
+    s+="<li id='wave"+dictionary[key].wavnum+"'>"+dictionary[key].text+"</li>";
   })
   while(level>-1){
     level-=1;
@@ -121,6 +112,7 @@ function becomeInput(event){
   var width = elem.width();
   var data = elem.html();
   elem.empty();
+  elem.addClass('changed');
   var tf = $('<textarea></textarea>');
   tf.css({
     height: height+15,
