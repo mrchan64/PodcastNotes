@@ -17,14 +17,17 @@ var subtitleData = {
 
 ws.onmessage = function(event){
   var data = JSON.parse(event.data);
+  console.log(data)
   if(data.tag == 'subtitles'){
     subtitleData.text = data.text;
     subtitleData.timestamps = data.time;
+    printSubtitle();
   }else if(data.tag == 'notes'){
     dictionary = data.notes;
     Object.keys(dictionary).forEach((key)=>{
       chrononotes[dictionary[key].wavnum] = key;
     });
+    printNotes();
   }
 }
 
@@ -73,6 +76,7 @@ function timeOnVideo(video){
 }
 
 function printSubtitle(){
+  console.log("Printing subtitles")
   subtitleData.text.forEach((text)=>{
     var curTag = $("<p>"+ text+"</p>");
     subtitleTags.push(curTag);
@@ -81,17 +85,61 @@ function printSubtitle(){
 }
 
 function printNotes(){
+  console.log("Printing Notes")
   // by topic
   var notes = $('#notes');
-  //$('.note').remove();
-  Object.keys(dictionary).sort((a,b)=>{
-    return parseInt(a.replace('order',''))>parseInt(b.replace('order',''));
-  }).forEach((key)=>{
-    var note = $('<p></p>');
-    note.html(dictionary[key].text);
-    note.addClass('note-'+dictionary[key].importance);
-    note.addClass('note');
-    dictionary[key].elem = note;
-    notes.append(note);
+  $('.notelist').remove();
+  var level = -1;
+  var s = ""
+  Object.keys(dictionary).forEach((key)=>{
+    while(level<dictionary[key].score){
+      level+=1;
+      s+="<ul>";
+    }
+    while(level>dictionary[key].score){
+      level-=1;
+      s+="</ul>";
+    }
+    s+="<li>"+dictionary[key].text+"</li>";
+  })
+  while(level>-1){
+    level-=1;
+    s+="</ul>";
+  }
+  s = $(s);
+  s.addClass('notelist');
+  notes.append(s);
+  $('li').on('click', becomeInput);
+  $('#notes').on('click', closeAlltf);
+}
+
+function becomeInput(event){
+  event.stopPropagation();
+  var elem = $(this);
+  if(elem.find('textarea')[0])return;
+  var height = elem.height();
+  var width = elem.width();
+  var data = elem.html();
+  elem.empty();
+  var tf = $('<textarea></textarea>');
+  tf.css({
+    height: height+15,
+    width: width-16,
+    margin: '4px'
+  });
+  tf.html(data);
+  elem.append(tf);
+}
+
+function closeAlltf(event){
+  console.log('closing')
+  $('li').each((ind, elem)=>{
+    var elem = $(elem);
+    console.log(elem);
+    if(elem.find('textarea')[0]){
+      var val = elem.find('textarea').val();
+      elem.empty();
+      elem.html(val);
+    }
   })
 }

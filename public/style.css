@@ -109,6 +109,7 @@ p#notetitle{
   font-size: 30px;
   font-weight: bold;
   margin: 0;
+  margin-top: 30px;
 }
 
 .note-0{
@@ -179,6 +180,21 @@ p#notetitle{
 
 .unhighlight{
   background-color: none;
+}
+
+.notelist {
+  margin-right: 40px;
+}
+
+li {
+  margin-bottom: 10px;
+  background-color: rgba(255,255,255,.05);
+  padding: 2px;
+  cursor: pointer;
+}
+li>textarea{
+  border: 0;
+  position:relative;
 }
 
 #podracer{

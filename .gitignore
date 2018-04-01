@@ -1,1 +1,7 @@
 node_modules
+*.mp4
+demo*
+*apikey.json
+py/audio.wav
+py/output/
+py/timestamps.txt
