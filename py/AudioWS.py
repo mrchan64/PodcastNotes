@@ -62,8 +62,19 @@ ind = 0
     #     start = counter
     #     ind = 0
     # counter = counter + 1
-
+time = open('timestamps.txt', 'a')
 for i in array:
+    if (counter-start)/44100 >= 59:
+        print(math.floor(start/44100))
+        time.write(str(math.floor(start/44100))+' ');
+        sys.stdout.flush()
+        command = "ffmpeg -loglevel panic -ss "+str(math.floor(start/44100))+" -t "+str(math.ceil((counter-start)/44100))+" -i "+file_name+" output/output"+str(index)+".wav"
+        subprocess.call(command, shell=True)
+        start = counter
+        index += 1
+        counter += 1
+        continue
+
     if i>th:
         ind = 0
 
@@ -84,6 +95,7 @@ for i in array:
         else:
             #print("success")
             print(math.floor(start/44100))
+            time.write(str(math.floor(start/44100))+' ');
             sys.stdout.flush()
             command = "ffmpeg -loglevel panic -ss "+str(math.floor(start/44100))+" -t "+str(math.ceil((counter-start)/44100))+" -i "+file_name+" output/output"+str(index)+".wav"
             subprocess.call(command, shell=True)

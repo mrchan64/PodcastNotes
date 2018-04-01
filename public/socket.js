@@ -20,11 +20,13 @@ ws.onmessage = function(event){
   if(data.tag == 'subtitles'){
     subtitleData.text = data.text;
     subtitleData.timestamps = data.time;
+    printSubtitle();
   }else if(data.tag == 'notes'){
     dictionary = data.notes;
     Object.keys(dictionary).forEach((key)=>{
       chrononotes[dictionary[key].wavnum] = key;
     });
+    printNotes();
   }
 }
 
@@ -73,6 +75,7 @@ function timeOnVideo(video){
 }
 
 function printSubtitle(){
+  console.log("Printing subtitles")
   subtitleData.text.forEach((text)=>{
     var curTag = $("<p>"+ text+"</p>");
     subtitleTags.push(curTag);
@@ -81,11 +84,12 @@ function printSubtitle(){
 }
 
 function printNotes(){
+  console.log("Printing Notes")
   // by topic
   var notes = $('#notes');
   //$('.note').remove();
   Object.keys(dictionary).sort((a,b)=>{
-    return parseInt(a.replace('order',''))>parseInt(b.replace('order',''));
+    return parseInt(a.replace('note',''))>parseInt(b.replace('note',''));
   }).forEach((key)=>{
     var note = $('<p></p>');
     note.html(dictionary[key].text);

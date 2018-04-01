@@ -26,13 +26,15 @@ from collections import OrderedDict, Counter
 
 cl = 4
 
+file_name = sys.argv[1]
+
 #Download MLTK English tokenizer/stopwords 
 #nltk.download('punkt')
 #nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
 
 #read in dataset
-with io.open('results.txt', 'rb') as file:
+with io.open(file_name, 'rb') as file:
 	results = file.read()
 
 results = str(results).split(".")
@@ -139,11 +141,11 @@ corpus = [dictionary.doc2bow(text) for text in texts]
 ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=6, id2word = dictionary, passes=20)
 print(ldamodel.print_topics(num_topics=6, num_words=6))'''
 
-with io.open('results.txt', 'rb') as file:
+with io.open(file_name, 'rb') as file:
 	res = file.read()
 
 res = str(res)
-print(res)
+# print(res)
 stopWords = set(stopwords.words("english"))
 words = word_tokenize(res)
 
