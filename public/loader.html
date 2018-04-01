@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Loading Your Pod</title>
+    <h1 align="center"> Loading . . .</h1>
+    <link href="/public/style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+  </head>
+
+  <body>
+    <img src="/public/podracer.png" id="podracer">
+
+    <div id="myProgress">
+      <div id="myBar"></div>
+    </div>
+
+  </body>
+
+  <script>
+    setTimeout(move, 10);
+    function move(){
+      var elem = document.getElementById("myBar");
+      var width = 1;
+      var framenum = 0;
+      var id = setInterval(frame, 20);
+
+      function frame(){
+        if(width >= 100){
+	  clearInterval(id);
+	 var val = window.location.href;
+	    var ind = val.indexOf("url=");
+	    val = val.substring(ind+4);
+	    console.log(val, ind)
+	    console.log('redirecting')
+	    window.location.replace('/?url='+val);
+
+
+	}else{
+	  width++;
+	  document.getElementById("podracer").style.marginLeft = width -2 + '%';
+	  elem.style.width = width + '%';
+	}      }
+    }  </script>
+
+</html>

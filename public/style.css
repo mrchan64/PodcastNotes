@@ -196,3 +196,26 @@ li>textarea{
   border: 0;
   position:relative;
 }
+
+#podracer{
+  width: 10%;
+  height: auto;
+  padding-top: 76px;
+}
+
+#myProgress{
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+  top: 140px;
+  left: 0px;
+
+}
+
+#myBar{
+  width: 1%;
+  height: 30px;
+  background-color: #FF847C;
+
+
+}
