@@ -108,6 +108,8 @@ length = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DI
 
 results = open('results.txt', 'a')
 
+alreadyhas = False
+
 for i in range(length):
     file_name = "output/output"+str(i)+".wav"
     with io.open(file_name, 'rb') as audio_file:
@@ -122,7 +124,12 @@ for i in range(length):
     # Detects speech in the audio file
     response = client.recognize(config, audio)
 
+    if alreadyhas:
+        results.write("|");
+
     for result in response.results:
         print('{}'.format(result.alternatives[0].transcript))
-        results.write('{}'.format(result.alternatives[0].transcript)+"| ")
+        results.write('{}'.format(result.alternatives[0].transcript))
+        break
+    alreadyhas = True
 
